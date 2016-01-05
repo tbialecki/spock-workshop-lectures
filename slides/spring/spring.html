@@ -1,0 +1,23 @@
+<h2>Spring support</h2>
+<pre><code style="max-height: 600px" data-trim contenteditable class="groovy">
+@ContextConfiguration(classes = SampleComponentTestConfig)
+class SampleComponentTest extends Specification {
+    @Autowired
+    SampleComponent sampleComponent;
+
+    def "should do it"() {
+        when:
+            def output = sampleComponent.doIt();
+        then:
+            output == "I`m doing";
+    }
+
+    @Configuration
+    public static class SampleComponentTestConfig {
+        @Bean
+        public SampleComponent sampleComponent() {
+            return new SampleComponent();
+        }
+    }
+}
+</code></pre>

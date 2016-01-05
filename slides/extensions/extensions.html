@@ -1,0 +1,23 @@
+<h3>Extensions</h3>
+
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+@Ignore
+def "I won't run"() { ... }
+
+@IgnoreRest
+def "Only it will run"() { ... }
+
+@IgnoreIf({ os.windows })
+def "I'll run everywhere but on Windows"() { ... }
+
+@Requires({ os.windows })
+def "I'll only run on Windows"() { ... }
+</code></pre>
+
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+@Stepwise
+class RunInOrderSpec extends Specification { ... }
+
+@Timeout(10)
+class TimedSpec extends Specification { ... }
+</code></pre>

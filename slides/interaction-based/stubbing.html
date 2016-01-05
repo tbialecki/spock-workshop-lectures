@@ -1,0 +1,27 @@
+<h3>Interaction Based Testing - Stubbing</h3>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+interface Subscriber {
+    String receive(String message)
+}
+</code></pre>
+<h4 class="fragment">Returning Fixed Values</h4>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+subscriber.receive("message1") >> "ok"
+subscriber.receive("message2") >> "fail"
+</code></pre>
+
+<h4 class="fragment">Returning Sequences of Values</h4>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+subscriber.receive(_) >>> ["ok", "error", "error", "ok"]
+</code></pre>
+
+<h4 class="fragment">Computing Return Values</h4>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+subscriber.receive(_) >> { args -> args[0].size()>3 ? "ok": "nok" }
+</code></pre>
+
+<h4 class="fragment">Chaining Method Responses</h4>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+subscriber.receive(_) >>> ["ok", "fail", "ok"]
+                      >> { throw new InternalError() } >> "ok"
+</code></pre>
