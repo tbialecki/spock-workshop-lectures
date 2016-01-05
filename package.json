@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:tbialecki/spock-workshop-lectures.git"
+    "url": "https://github.com/tbialecki/spock-workshop-lectures.git"
 
   },
   "scripts": {
