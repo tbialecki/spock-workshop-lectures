@@ -1,0 +1,11 @@
+<h2>State based testing - Spock</h2>
+<pre><code data-trim contenteditable>
+class HelloWorldTest extends Specification {
+
+    def "++i should iterate"() {
+        given:
+            def i = 0
+        expect:
+            ++i == 1
+    }
+}</code></pre>
