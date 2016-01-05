@@ -50,5 +50,18 @@
             }
         },
         "data-driven/data-driven-pipes.html"
+    ],
+    [
+        "interaction-based/interaction-based.html",
+        "interaction-based/interaction-based2.html",
+        "interaction-based/constraints.html",
+        "interaction-based/constraints2.html",
+        "interaction-based/stubbing.html"
+    ],
+    [
+        "extensions/extensions.html"
+    ],
+    [
+        "spring/spring.html"
     ]
 ]
