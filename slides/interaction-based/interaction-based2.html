@@ -1,0 +1,26 @@
+<h3>Interaction Based Testing - Mocking</h3>
+<pre><code data-trim contenteditable class="groovy">
+class Publisher {
+    List&lt;Subscriber&gt; subscribers
+    void send(String message)
+}
+
+interface Subscriber {
+    void receive(String message)
+}
+</code></pre>
+
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+def "should notify subscriber"() {
+    given:
+        def publisher = new Publisher();
+        def subscriber = Mock(Subscriber);
+        publisher.subscribers << subscriber;
+
+    when:
+        publisher.send("hello")
+
+    then:
+        1 * subscriber.receive("hello")
+}
+</code></pre>

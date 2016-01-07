@@ -1,0 +1,33 @@
+<h4 class="fragment">Argument constraints</h4>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive("hello")     // an argument that is equal
+                                    // to the String "hello"
+1 * subscriber.receive(!"hello")    // an argument that is unequal
+                                    // to the String "hello"
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive()            // the empty argument list
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive(_)           // any single argument
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive(*_)          // any argument list
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive(!null)       // any non-null argument
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive(_ as String) // any non-null argument
+                                    // that is-a String
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * subscriber.receive({ it.size() > 3 })
+                                    // an argument that satisfies
+                                    // the given predicate
+</code></pre>
+<h4 class="fragment">Multiargument constraints</h4>
+
+<pre class="fragment"><code data-trim contenteditable class="groovy">
+1 * process.invoke("ls", "-a", _, !null, { ["abcd"].contains(it) })
+</code></pre>
