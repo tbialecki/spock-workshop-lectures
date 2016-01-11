@@ -1,0 +1,16 @@
+<h2>Spec lifecycle</h2>
+<pre><code style="max-height: 600px" data-trim contenteditable class="groovy">
+class LifecycleTest extends Specification {
+
+    @Shared
+    def objectUnderTest = new Simple();
+
+    def setup() { ... }
+
+    def cleanup() { ... }
+
+    def setupSpec() { ... }
+
+    def cleanupSpec() { ... }
+}
+</code></pre>
